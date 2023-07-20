@@ -57,7 +57,7 @@ font-weight: 723;
   gap: 100px;
 }
 
-.links a{
+.options{
  display: flex;
  flex-direction: column;
 width: 269px;
@@ -75,6 +75,12 @@ font-size: 23px;
 font-weight: 723;
 text-transform: uppercase;
 
+}
+
+.options:hover{
+  border: 8px solid rgba(83, 119, 110, 0.70);
+  /* background: rgba(255, 255, 255, 0.00); */
+  box-shadow: 12px 12px 8px 0px rgba(0, 0, 0, 0.25);
 }
 
 .links svg{

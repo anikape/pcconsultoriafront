@@ -1,28 +1,20 @@
 import React, { useState } from 'react';
-import style from './FormLogin.module.css'
+import style from './FormLogin.module.css';
 import Image from 'next/image';
-import { FaUser } from 'react-icons/fa';
+import { FaUser, FaInfoCircle } from 'react-icons/fa';
 
 const LoginForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [usernameError, setUsernameError] = useState('');
-  const [passwordError, setPasswordError] = useState('');
+  const [loginError, setLoginError] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     // Verificação dos campos obrigatórios
-    if (username === '') {
-      setUsernameError('Usuário inválido');
-    } else {
-      setUsernameError('');
-    }
-
-    if (password === '') {
-      setPasswordError('Senha inválida');
-    } else {
-      setPasswordError('');
+    if (username === '' || password === '') {
+      setLoginError('Usuário e/ou senha inválido');
+      return;
     }
 
     // Lógica para verificar se o usuário e senha estão corretos
@@ -31,50 +23,42 @@ const LoginForm = () => {
     if (username === 'usuario' && password === 'senha') {
       alert('Login bem-sucedido');
     } else {
-      alert('Usuário ou senha inválidos');
+      setLoginError('Usuário e/ou senha inválido');
     }
   };
 
   return (
     <div className={style.containerForm}>
-
-      <Image
-        src="/logo-pc-consultoria-2.svg"
-        alt="Logo Pc Consultoria"
-        width={331}
-        height={65}
-      />
-     
+      <Image src="/logo-pc-consultoria-2.svg" alt="Logo Pc Consultoria" width={331} height={65} />
 
       <form onSubmit={handleSubmit}>
         <div className={style.div}>
           <div className={style.inputContainer}>
-            
-          
+            {loginError && <p className={style.error}><FaInfoCircle /> {loginError}</p>}
             <input
-            className={style.inputText}
+              className={style.inputText}
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               placeholder="Usuário"
             />
-            </div>
-          
-          {usernameError && <p>{usernameError}</p>}
+          </div>
         </div>
         <div className={style.div}>
-          {/* <label>Senha:</label> */}
           <input
+          className={style.inputPass}
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder='......'
+            placeholder="......"
           />
-          {passwordError && <p>{passwordError}</p>}
+          {/* {loginError && <p>{loginError}</p>} */}
         </div>
         <button type="submit">Enviar</button>
       </form>
-      <a className={style.forguet} href="">Esqueci a senha</a>
+      <a className={style.forguet} href="">
+        Esqueceu a senha?
+      </a>
     </div>
   );
 };

@@ -18,9 +18,9 @@ const home = () => {
 
           <div className={style.links}>
 
-              <a href=""  > <FaTasks /> Lista de clientes</a>
-              <a href=""> <FaNewspaper />Documentos</a>
-              <a href=""> <FaUsers />Área Adm</a>
+              <a href="/client" className={style.options}> <FaTasks /> Lista de clientes</a>
+              <a href="" className={style.options}> <FaNewspaper />Documentos</a>
+              <a href="" className={style.options}> <FaUsers />Área Adm</a>
 
           </div>  
 
