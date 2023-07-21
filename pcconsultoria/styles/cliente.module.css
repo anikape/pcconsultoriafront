@@ -1,0 +1,15 @@
+
+
+.container{
+  background-image: url('../../public/images/bgClient2.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+   background-size: cover;
+  width: 100%;
+  height: 1453px;
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  
+}
+

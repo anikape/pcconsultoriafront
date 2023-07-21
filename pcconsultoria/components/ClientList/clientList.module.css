@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+
+.principal{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: url('../../../public/images/bglist.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width:80vw;
+  padding-top: 2rem;
+  font-family: 'Libre Franklin', sans-serif;
+    
+}
+
+.principal h1{
+  text-align: center;
+  color: rgba(0, 0, 0, 0.74);
+  text-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.25);
+  font-size: 55px;
+  
+  
+}
+
+.find{
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 1rem;
+}
+
+.find h3{
+  color: rgba(30, 30, 30, 0.90);
+text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+font-size: 25px;
+}
+
+.find input{
+  width: 452px;
+height: 39px;
+border-radius: 26px;
+border: 1px solid rgba(30, 30, 30, 0.43);
+background: rgba(255, 255, 255, 0.23);
+box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+border: none;
+outline: none;
+}
+
+.find input::placeholder{
+  padding: 1rem;
+}
+
+.acordion{
+  width: 40vw;
+  padding-top: 2rem;
+}
+
+.accordionContainer{
+  display: flex;
+  flex-direction:column;
+  /* margin-top: 50px; */
+  
+}
+
+.customExpandIcon{
+  color: rgba(30, 30, 30, 0.83);
+  stroke-width: 3px;
+  stroke: #1E1E1E;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));;
+}
+
+.content{
+  padding: 10px;
+}
+
+.transparentAccordion{
+  width: 100%;
+  background: transparent;
+}
+
+.name{
+  
+  color: #1E1E1E;
+  font-size: 17px;
+text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+font-weight: 600;
+line-height: 111%; /* 18.87px */
+letter-spacing: 0.34px;
+
+
+}

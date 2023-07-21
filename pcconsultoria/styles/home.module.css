@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Chela+One&family=Comic+Neue:wght@300&family=Doppio+One&family=Glory:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400&family=Inter:wght@100;200;300;400;500;600;800&family=Lily+Script+One&family=Mukta:wght@300;400;500;600;700&display=swap');
+
+.containerHome{
+  background-image: url('../../public/images/bg2.png');
+  /* box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset; */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.content{
+  width: 1259px;
+  height: 758px;
+  border-radius: 18px;
+border: 28px solid rgba(255, 255, 255, 0.50);
+background: rgba(255, 255, 255, 0.20);
+box-shadow: 12px 12px 8px 0px rgba(0, 0, 0, 0.25);
+
+}
+
+.info{
+  display: flex;
+  margin-left: 107px;
+  margin-top: 44px;
+}
+
+.info p{
+  color: #FFF;
+text-align: center;
+width: 284px;
+height: 34px;
+text-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.25);
+font-family: 'Inter', sans-serif;
+font-size: 30px;
+font-weight: 723;
+
+}
+
+.icon{
+  width: 73.692px;
+  height: 73.692px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  color: #FFF;
+}
+
+.links{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 117px;
+  gap: 100px;
+}
+
+.options{
+ display: flex;
+ flex-direction: column;
+width: 269px;
+height: 245px;
+padding: 29px 15px;
+justify-content: center;
+align-items: center;
+gap: 30px;
+border-radius: 21px;
+border: 8px solid rgba(255, 255, 255, 0.37);
+background: rgba(132, 152, 147, 0.93);
+box-shadow: 12px 12px 8px 0px rgba(0, 0, 0, 0.25);
+color: #FFF;
+font-size: 23px;
+font-weight: 723;
+text-transform: uppercase;
+
+}
+
+.options:hover{
+  border: 8px solid rgba(83, 119, 110, 0.70);
+  /* background: rgba(255, 255, 255, 0.00); */
+  box-shadow: 12px 12px 8px 0px rgba(0, 0, 0, 0.25);
+}
+
+.links svg{
+  width: 111.955px;
+height: 111.955px;
+}
+
+.logout{
+  width: 64px;
+height: 64px;
+display: flex;
+ flex-direction: column;
+ color: #FFF;
+ font-size: 10px;
+ font-weight: 723;
+ border-radius: 21px;
+border: 8px solid rgba(255, 255, 255, 0.37);
+background: rgba(132, 152, 147, 0.93);
+box-shadow: 4px 4px 3px 0px rgba(0, 0, 0, 0.25);
+justify-content: center;
+align-items: center;
+margin: 116px 1100px;
+
+
+}
+.logout svg {
+  width: 26.504px;
+  height: 26.557px;
+  filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.25));
+}

@@ -1,0 +1,98 @@
+.containerForm{
+  background-image: url('../../../public/images/bgForm.png');
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  width: 566px;
+  height: 634px;
+  align-items: center;
+  justify-content: center;
+}
+
+.div{
+  display: flex;
+flex-direction: column;
+}
+
+.div input{
+  width: 377px;
+  height: 49px;
+  margin-bottom: 41px;
+  border-radius: 9px;
+  background: #849893;
+  box-shadow: 10px 3px 16px 0px rgba(255, 255, 255, 0.50), 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  border: none;
+
+}
+
+
+
+.user{
+  border-radius: 9px;
+  background: #849893;
+  /* box-shadow: 10px 3px 16px 0px rgba(255, 255, 255, 0.50), 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset; */
+}
+
+
+
+.inputText::placeholder, .inputPass::placeholder{
+color: rgba(255, 255, 255, 0.59);
+text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+font-size: 22px;
+font-weight: 600;
+opacity: 0.8;
+padding: 60px;
+}
+
+.containerForm button{
+ width: 377px;
+  height: 45px;
+  border: none;
+  margin-bottom: 56px;
+  border-radius: 9px;
+background: #849893;
+box-shadow: 5px 3px 16px 0px #FFF, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+color: #FFF;
+text-align: center;
+text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+font-family: Inter;
+font-size: 23px;
+font-style: normal;
+font-weight: 723;
+line-height: normal;
+}
+.forguet{
+  color: rgba(60, 45, 38, 0.90);
+text-align: center;
+text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+font-family: Inter;
+font-size: 18px;
+font-weight: 700;
+line-height: 149.023%; 
+opacity: 0.800000011920929;
+}
+
+.error{
+  display: flex;
+  width: 377px;
+  height: 44px;
+  color: #3C2D26;
+text-align: center;
+align-items: center;
+justify-content: center;
+text-shadow: 5px 5px 4px 0px rgba(0, 0, 0, 0.25);
+font-size: 18px;
+font-weight: 500;
+border-radius: 13px;
+background: rgba(217, 217, 217, 0.85);
+box-shadow: -3px -3px 16px 0px rgba(0, 0, 0, 0.25) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+}
+
+.error svg{
+  color: #f19d23;
+  margin-right: 5px;
+  width: 23px;
+  height: 23px;
+}
+

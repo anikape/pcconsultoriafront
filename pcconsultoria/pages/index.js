@@ -1,17 +1,21 @@
-import React from "react"
-import Button from "../components/Button"
-import Header from "../components/Header"
-import Footer from "../components/Footer"
+import React from 'react';
+import Footer from '../components/Footer';
+import FormLogin from '../components/Form';
+import style from '../styles/index.module.css';
 
+export default function Login() {
 
-export default function Home() {
+ 
+    
   return (
-    <>
-    <Header />
-  
-  
-  <Button />
-  <Footer />
-  </>
-  )
+    <section className={style.container}>
+      <section className={style.main}>
+        <FormLogin />
+      </section>
+
+      <section className={style.footer}>
+        <Footer />
+      </section>
+    </section>
+  );
 }
