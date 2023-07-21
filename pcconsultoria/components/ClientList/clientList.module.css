@@ -9,8 +9,8 @@
   background: url('../../../public/images/bglist.svg');
   background-repeat: no-repeat;
   background-size: cover;
-  width: 1254px;
-  padding-top: 1rem;
+  width:80vw;
+  padding-top: 2rem;
   font-family: 'Libre Franklin', sans-serif;
     
 }
@@ -52,9 +52,14 @@ outline: none;
   padding: 1rem;
 }
 
+.acordion{
+  width: 40vw;
+  padding-top: 2rem;
+}
 
 .accordionContainer{
   display: flex;
+  flex-direction:column;
   /* margin-top: 50px; */
   
 }

@@ -6,55 +6,68 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import style from './clientList.module.css';
 
-const clients =  [
+const clients = [
   {
-    id:1,
+    id: 1,
     name: "Ana Santos",
     email: "teste@test.com",
     mobile: 81988693599,
-    cpfCnpj: 12345678910,
-    wonner: "Edficações LTDA",
+    entreprise: [
+      {
+        cpfCnpj: 12345678910,
+        razaoSocial: "Edficações LTDA",
+        endereco: "Rua do jasmin",
+        telefone: "81-9887692454",
+      },
+      {
+        cpfCnpj: 222222222,
+        razaoSocial: "Tech Team LTDA",
+        endereco: "Rua do Leme",
+        telefone: "81-9887692454",
+      },
+    ],
   },
   {
-    id:2,
-    name: "Ana Santos",
+    id: 2,
+    name: "Jesica Santana",
     email: "teste@test.com",
     mobile: 81988693599,
-    cpfCnpj: 2222222222222,
-    wonner: "Moura Brasil LTDA",
+    entreprise: [
+      {
+        cpfCnpj: 4444444,
+        razaoSocial: "Stefanini",
+        endereco: "Rua do Cravo",
+        telefone: "81-9887692454",
+      },
+      {
+        cpfCnpj: 3333333,
+        razaoSocial: "Globo",
+        endereco: "Rua do Amarelo",
+        telefone: "81-9887692454",
+      },
+    ],
   },
   {
-    id:3,
-    name: "Jessica ",
+    id: 3,
+    name: "Well Nobre",
     email: "teste@test.com",
     mobile: 81988693599,
-    cpfCnpj: 1111111111111,
-    wonner: "Alef ME",
+    entreprise: [
+      {
+        cpfCnpj: 888888888,
+        razaoSocial: "Oi Telecom",
+        endereco: "Rua da Alegria",
+        telefone: "81-9887692454",
+      },
+      {
+        cpfCnpj: 777777777,
+        razaoSocial: "Vivo S/A",
+        endereco: "Rua Paralela",
+        telefone: "81-9887692454",
+      },
+    ],
   },
-  {
-    id:4,
-    name: "Mario Cesar",
-    email: "teste@test.com",
-    mobile: 81988693599,
-    cpfCnpj: 55555555555,
-    wonner: "Alef ME",
-  },
-  {
-    id:5,
-    name: "Tati",
-    email: "teste@test.com",
-    mobile: 81988693599,
-    cpfCnpj: 4444444444444,
-    wonner: "Sefaz S/A",
-  },
-  {
-    id:6,
-    name: "Wellington Nobre",
-    email: "teste@test.com",
-    mobile: 81988693599,
-    cpfCnpj: 99999999999999,
-    wonner: "Sefaz S/A",
-  }
+  // Adicionar outros clientes aqui...
 ];
 
 const ClientList = () => {
@@ -64,73 +77,99 @@ const ClientList = () => {
     setSearchValue(event.target.value);
   };
 
+  // Função para filtrar os clientes com base no valor de pesquisa (searchString)
+  const filterClients = (searchString) => {
+    const regex = new RegExp(searchString, 'i');
+    return clients.filter((client) => {
+      const hasMatchingCpfCnpj =
+        client.cpfCnpj && regex.test(client.cpfCnpj.toString().replace(/\D/g, ''));
+      const hasMatchingRazaoSocial =
+        client.entreprise &&
+        client.entreprise.some((enterpriseItem) => regex.test(enterpriseItem.razaoSocial));
+      return hasMatchingCpfCnpj || hasMatchingRazaoSocial;
+    });
+  };
+
   // Filtrar os clientes com base no valor de pesquisa (searchValue)
-  const filteredClients = clients.filter((client) => {
-    const searchString = searchValue.toLowerCase();
-    return (
-      client.cpfCnpj.toString().includes(searchString) ||
-      client.wonner.toLowerCase().includes(searchString)
-    );
-  });
+  const filteredClients = filterClients(searchValue);
 
   return (
     <section className={style.principal}>
       <h1>Clientes</h1>
 
       <div className={style.find}>
-      {/* <div dangerouslySetInnerHTML={{ __html: '<h3>Cpf/Cnpj</h3>' }} />
-      dangerouslySetInnerHTML - evitar possíveis vulnerabilidades de injeção de código. */}
-      <input
-        type="text"
-        placeholder="Pesquisar por CPF/CNPJ ou Empresa"
-        value={searchValue}
-        onChange={handleSearchChange}
-      />
-  </div>
+        <input
+          type="text"
+          placeholder="Pesquisar por CPF/CNPJ ou Razão Social"
+          value={searchValue}
+          onChange={handleSearchChange}
+        />
+      </div>
+      
       <div className={style.acordion}>
-        {filteredClients.map((client) => (
-          <Accordion key={client.id} className={style.transparentAccordion}>
-            <AccordionSummary 
-              expandIcon={<ExpandMoreIcon className={style.customExpandIcon}  />}
-              aria-controls={`panel${client.id}-content`}
-              id={`panel${client.id}-header`}
-            >
-              <Typography><p className={style.name}>{client.name}</p> <span>{client.cpfCnpj}</span>
-              
-              </Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-            <Typography>
-             <div className={style.accordionContainer}>
+        {filteredClients.length === 0 ? (
+          <Typography>
+            <p className={style.notFound}>Dados não localizados</p>
+          </Typography>
+        ) : (
+          filteredClients.map((client) => (
+            <Accordion key={client.id} className={style.transparentAccordion}>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon className={style.customExpandIcon} />}
+                aria-controls={`panel${client.id}-content`}
+                id={`panel${client.id}-header`}
+              >
+                <Typography>
+                  <p className={style.name}>{client.name}</p>
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>
+                  <div className={style.accordionContainer}>
+                    {client.entreprise &&
+                      client.entreprise.map((enterpriseItem, index) => (
+                        <Accordion key={index}>
+                          <AccordionSummary
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls={`panel${client.id}-content-${index}`}
+                            id={`panel${client.id}-header-${index}`}
+                          >
+                            <Typography>
+                              <h4>Empresa {index + 1}</h4>
+                            </Typography>
+                          </AccordionSummary>
+                          <AccordionDetails>
+                            <Typography>
+                              <div className={style.content}>
+                                <p>CPF/CNPJ: {enterpriseItem.cpfCnpj}</p>
+                                <p>Razão Social: {enterpriseItem.razaoSocial}</p>
+                                <p>Telefone: {enterpriseItem.telefone}</p>
+                              </div>
+                            </Typography>
+                          </AccordionDetails>
+                        </Accordion>
+                      ))}
 
-             <span>Empresa: {client.wonner}</span>
+                    <div className={style.content}>
+                      <h4>E-mail</h4>
+                      <p>{client.email}</p>
+                    </div>
 
-             <div className={style.content} >
-                  <h4>Nome/Razão Social</h4>
-                  <p>{client.name}</p>
-                </div>
-                  
-                <div className={style.content}>
-                  <h4>E-mail</h4>
-                  <p>{client.email}</p>
-                </div>
+                    <div className={style.content}>
+                      <h4>Telefone Celular</h4>
+                      <p>{client.mobile}</p>
+                    </div>
 
-                <div className={style.content}>
-                  <h4>Telefone Celular</h4>
-                  <p>{client.mobile}</p>
-                </div>
-
-                <div className={style.content}>
-                  <h4>CPF/CNPJ</h4>
-                  <p>{client.cpfCnpj}</p>
-                </div>
-               
-                </div>
-              
-            </Typography>
-            </AccordionDetails>
-          </Accordion>
-        ))}
+                    <div className={style.content}>
+                      <h4>CPF/CNPJ</h4>
+                      <p>{client.cpfCnpj}</p>
+                    </div>
+                  </div>
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+          ))
+        )}
       </div>
     </section>
   );
