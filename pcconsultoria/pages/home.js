@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link';
 import style from "../styles/home.module.css"
 import { FaUserAlt, FaTasks, FaNewspaper, FaUsers  } from "react-icons/fa";
 import { BiLogOut } from "react-icons/bi";
@@ -18,13 +19,24 @@ const home = () => {
 
           <div className={style.links}>
 
-              <a href="/client" className={style.options}> <FaTasks /> Lista de clientes</a>
-              <a href="" className={style.options}> <FaNewspaper />Documentos</a>
-              <a href="" className={style.options}> <FaUsers />Área Adm</a>
+            <Link href="/client" className={style.options}>
+            <FaTasks /> Lista de clientes
+            </Link>
+             <Link href="" className={style.options}>
+              <FaNewspaper />Documentos
+             </Link>
+             
+             <Link href=""  className={style.options}>
+             <FaUsers />Área Adm
+             </Link>
+            
 
           </div>  
 
-          <a href='/'  className={style.logout} ><BiLogOut /> Sair</a>
+          <Link href='/' className={style.logout}>
+        <BiLogOut /> Sair
+          </Link>
+        
 
         </section>
 
